@@ -12,7 +12,9 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    "Rubik-Regular": require("@/assets/fonts/Rubik-Regular.ttf"),
+    "Rubik-Medium": require("@/assets/fonts/Rubik-Medium.ttf"),
+    "Rubik-Semibold": require("@/assets/fonts/Rubik-Medium.ttf"),
   });
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export default function RootLayout() {
       <Stack.Screen name="(start)" options={{ headerShown: false }} />
       <Stack.Screen
         name="(tabs)"
-        options={{ headerShown: true, animation: "slide_from_right" }}
+        options={{ headerShown: false, animation: "slide_from_right" }}
       />
       <Stack.Screen name="+not-found" />
     </Stack>

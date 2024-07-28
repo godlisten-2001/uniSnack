@@ -7,27 +7,34 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { router } from "expo-router";
+import { useFonts } from "expo-font";
+import CustomText from "@/components/CustomText";
 
 const SignIn = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
-  const autheticateUser = async () => {};
+  const autheticateUser = async () => {
+    try {
+      if (username.length == 0) {
+        alert("username cannot be empty");
+      } else {
+        // check username and password in the db
+        // if correct allow store the user in store
+        // if incorrect alert the user
+        router.replace("(tabs)");
+      }
+      if (password.length == 0) {
+        alert("please enter password");
+      }
+    } catch (error) {
+      alert("Opps Error has occured please try again");
+    }
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.Logo}>
-        <Text
-          style={{
-            fontSize: 30,
-            fontWeight: "bold",
-            color: "#ffff",
-            margin: 20,
-            textAlign: "center",
-          }}
-        >
-          Welcome to unisnack
-        </Text>
+        <CustomText type="title">Welcome to unisnack</CustomText>
       </View>
       <TextInput
         style={styles.input}
@@ -45,7 +52,7 @@ const SignIn = () => {
         secureTextEntry={true}
       />
       <TouchableOpacity style={styles.loginbtn} onPress={autheticateUser}>
-        <Text style={styles.logintxt}>Login</Text>
+        <CustomText style={styles.logintxt}>Login</CustomText>
       </TouchableOpacity>
 
       <View>
@@ -64,7 +71,7 @@ const SignIn = () => {
                 router.navigate("Register");
               }}
             >
-              <Text
+              <CustomText
                 style={{
                   width: 100,
                   padding: 0,
@@ -74,7 +81,7 @@ const SignIn = () => {
                 }}
               >
                 Register
-              </Text>
+              </CustomText>
             </TouchableOpacity>
           </View>
           <View

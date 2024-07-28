@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { router } from "expo-router";
+import CustomText from "@/components/CustomText";
 
 const Register = () => {
   const [username, setUsername] = useState<string>("");
@@ -17,17 +18,7 @@ const Register = () => {
   return (
     <View style={styles.container}>
       <View style={styles.Logo}>
-        <Text
-          style={{
-            fontSize: 30,
-            fontWeight: "bold",
-            color: "#ffff",
-            margin: 20,
-            textAlign: "center",
-          }}
-        >
-          Register to unisnack
-        </Text>
+        <CustomText type="title">Register to unisnack</CustomText>
       </View>
       <TextInput
         style={styles.input}
@@ -62,7 +53,7 @@ const Register = () => {
         secureTextEntry={true}
       />
       <TouchableOpacity style={styles.loginbtn}>
-        <Text style={styles.logintxt}>Register</Text>
+        <CustomText style={styles.logintxt}>Register</CustomText>
       </TouchableOpacity>
 
       <View>
@@ -81,7 +72,7 @@ const Register = () => {
                 router.back();
               }}
             >
-              <Text
+              <CustomText
                 style={{
                   width: 100,
                   padding: 0,
@@ -91,7 +82,7 @@ const Register = () => {
                 }}
               >
                 Go Back
-              </Text>
+              </CustomText>
             </TouchableOpacity>
           </View>
           <View
